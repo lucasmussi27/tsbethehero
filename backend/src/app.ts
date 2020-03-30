@@ -1,13 +1,18 @@
-import * as express from "express";
-import * as cors from "cors";
-import routes from "./routes";
-import { errors } from "celebrate";
-const app = express();
+import express from "express"
+import cors from "cors"
+import { errors } from "celebrate"
+import routes from "./routes"
+const app = express()
 
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(routes);
-app.use(errors());
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
+app.use(cors())
 
-export default app;
+app.get('/', (req: express.Request, res: express.Response) => {
+  res.json({ message: 'backend is working' })
+})
+
+app.use(routes)
+app.use(errors())
+
+export default app

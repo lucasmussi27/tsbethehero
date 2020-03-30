@@ -1,5 +1,4 @@
-import app from "./app";
+import app from "./app"
+const port = process.env.PORT || 4444
 
-app.listen(4444, () => {
-  console.log('Listening on http://localhost:4444');
-});
+app.listen(port, () => console.log(`Running on http://localhost:${port}`))
